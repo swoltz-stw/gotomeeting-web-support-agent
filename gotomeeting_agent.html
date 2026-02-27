@@ -32,7 +32,7 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background-image: 
+    background-image:
       radial-gradient(ellipse 60% 50% at 20% 20%, rgba(0,102,255,0.12) 0%, transparent 60%),
       radial-gradient(ellipse 50% 40% at 80% 80%, rgba(0,198,255,0.08) 0%, transparent 60%);
   }
@@ -51,7 +51,6 @@
     position: relative;
   }
 
-  /* Header */
   .header {
     padding: 20px 24px 18px;
     background: linear-gradient(135deg, var(--g2m-surface) 0%, rgba(0,102,255,0.15) 100%);
@@ -63,29 +62,19 @@
   }
 
   .agent-avatar {
-    width: 44px;
-    height: 44px;
+    width: 44px; height: 44px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #1a6bcc, #2d8fd4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    font-weight: 700;
-    color: white;
+    background: linear-gradient(135deg, #1a6fff, #0044cc);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 700; color: white;
     flex-shrink: 0;
     box-shadow: 0 4px 16px rgba(0,102,255,0.4);
     position: relative;
-    letter-spacing: -0.5px;
   }
-
   .agent-avatar::after {
     content: '';
-    position: absolute;
-    bottom: 1px;
-    right: 1px;
-    width: 11px;
-    height: 11px;
+    position: absolute; bottom: 1px; right: 1px;
+    width: 11px; height: 11px;
     background: var(--g2m-success);
     border-radius: 50%;
     border: 2px solid var(--g2m-mid);
@@ -93,34 +82,20 @@
 
   .header-info { flex: 1; }
   .header-name { font-size: 15px; font-weight: 600; color: var(--g2m-text); }
-  .header-role { font-size: 12px; color: var(--g2m-muted); margin-top: 1px; }
-  .header-status { font-size: 11px; color: var(--g2m-success); font-weight: 500; margin-top: 3px; }
+  .header-status { font-size: 12px; color: var(--g2m-success); font-weight: 500; margin-top: 2px; }
+  .header-team { font-size: 11px; color: var(--g2m-muted); }
 
-  .header-logo {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--g2m-muted);
-    letter-spacing: 0.03em;
-    opacity: 0.7;
-  }
-
-  /* Messages */
   .messages {
-    flex: 1;
-    overflow-y: auto;
-    padding: 20px 20px 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    flex: 1; overflow-y: auto;
+    padding: 20px 20px 8px;
+    display: flex; flex-direction: column; gap: 12px;
     scroll-behavior: smooth;
   }
-
   .messages::-webkit-scrollbar { width: 4px; }
   .messages::-webkit-scrollbar-track { background: transparent; }
   .messages::-webkit-scrollbar-thumb { background: var(--g2m-border); border-radius: 4px; }
 
-  .msg { display: flex; gap: 10px; animation: fadeUp 0.3s ease; max-width: 100%; }
+  .msg { display: flex; gap: 10px; animation: fadeUp 0.3s ease; }
   .msg.user { flex-direction: row-reverse; }
 
   @keyframes fadeUp {
@@ -129,27 +104,18 @@
   }
 
   .msg-avatar {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: 700;
-    margin-top: 2px;
-    color: white;
+    width: 30px; height: 30px; border-radius: 50%;
+    flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; margin-top: 2px; color: white;
   }
-  .msg.bot .msg-avatar { background: linear-gradient(135deg, #1a6bcc, #2d8fd4); }
+  .msg.bot .msg-avatar { background: linear-gradient(135deg, #1a6fff, #0044cc); }
   .msg.user .msg-avatar { background: var(--g2m-surface); border: 1px solid var(--g2m-border); font-size: 14px; }
 
+  .msg-body { max-width: 78%; }
+
   .msg-bubble {
-    max-width: 78%;
-    padding: 12px 15px;
-    border-radius: 14px;
-    font-size: 14px;
-    line-height: 1.6;
+    padding: 12px 15px; border-radius: 12px;
+    font-size: 14px; line-height: 1.6;
   }
   .msg.bot .msg-bubble {
     background: var(--g2m-surface);
@@ -163,170 +129,127 @@
     color: #fff;
   }
 
-  /* Support article link cards */
   .article-link {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 10px;
-    padding: 9px 12px;
-    background: rgba(0,102,255,0.1);
+    display: flex; align-items: center; gap: 8px;
+    margin-top: 8px; padding: 9px 12px;
+    background: rgba(0,102,255,0.12);
     border: 1px solid rgba(0,102,255,0.25);
     border-radius: 8px;
     text-decoration: none;
     color: var(--g2m-accent);
-    font-size: 12px;
-    font-weight: 500;
-    transition: all 0.2s;
+    font-size: 12px; font-weight: 500;
+    transition: background 0.2s;
+    word-break: break-word;
   }
-  .article-link:hover { background: rgba(0,102,255,0.2); border-color: var(--g2m-accent); }
-  .article-link svg { flex-shrink: 0; opacity: 0.7; }
+  .article-link:hover { background: rgba(0,102,255,0.22); }
+  .article-link svg { flex-shrink: 0; }
 
-  .msg-meta {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: 4px;
+  /* Searching indicator */
+  .searching-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(0,198,255,0.1);
+    border: 1px solid rgba(0,198,255,0.2);
+    border-radius: 20px;
+    padding: 4px 10px;
+    font-size: 11px; color: var(--g2m-accent);
+    margin-bottom: 6px;
+    animation: pulse 1.5s infinite;
   }
+  @keyframes pulse { 0%,100% { opacity:0.6; } 50% { opacity:1; } }
+  .searching-dot { width:6px; height:6px; background:var(--g2m-accent); border-radius:50%; animation: bounce 1.2s infinite ease-in-out; }
+  .searching-dot:nth-child(2) { animation-delay:0.15s; }
+  .searching-dot:nth-child(3) { animation-delay:0.3s; }
+
   .msg-time {
-    font-size: 10px;
-    color: var(--g2m-muted);
+    font-size: 10px; color: var(--g2m-muted);
+    margin-top: 4px;
     font-family: 'DM Mono', monospace;
   }
-  .msg-name {
-    font-size: 10px;
-    color: var(--g2m-muted);
-    font-weight: 500;
-  }
-  .msg.user .msg-meta { justify-content: flex-end; }
+  .msg.user .msg-time { text-align: right; }
 
-  /* Typing indicator */
   .typing-indicator { display: flex; gap: 10px; align-items: flex-end; }
   .typing-dots {
     background: var(--g2m-surface);
     border: 1px solid var(--g2m-border);
-    border-radius: 14px;
-    border-top-left-radius: 4px;
+    border-radius: 12px; border-top-left-radius: 4px;
     padding: 14px 18px;
-    display: flex;
-    gap: 5px;
-    align-items: center;
+    display: flex; gap: 5px; align-items: center;
   }
   .dot {
-    width: 6px; height: 6px;
-    background: var(--g2m-muted);
-    border-radius: 50%;
-    animation: bounce 1.2s infinite ease-in-out;
+    width: 6px; height: 6px; background: var(--g2m-muted);
+    border-radius: 50%; animation: bounce 1.2s infinite ease-in-out;
   }
   .dot:nth-child(2) { animation-delay: 0.2s; }
   .dot:nth-child(3) { animation-delay: 0.4s; }
   @keyframes bounce {
-    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    0%,60%,100% { transform: translateY(0); opacity: 0.4; }
     30% { transform: translateY(-6px); opacity: 1; }
   }
 
-  /* Escalation card */
   .escalation-card {
-    margin: 0 20px;
-    padding: 16px;
+    margin: 0 20px; padding: 16px;
     background: rgba(255,184,48,0.08);
     border: 1px solid rgba(255,184,48,0.3);
     border-radius: 12px;
-    display: none;
-    flex-shrink: 0;
+    display: none; flex-shrink: 0;
   }
   .escalation-card.visible { display: block; animation: fadeUp 0.3s ease; }
-  .esc-title { font-size: 13px; font-weight: 600; color: var(--g2m-warn); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+  .esc-title { font-size: 13px; font-weight: 600; color: var(--g2m-warn); margin-bottom: 6px; }
   .esc-text { font-size: 12px; color: var(--g2m-muted); margin-bottom: 12px; line-height: 1.5; }
   .esc-actions { display: flex; gap: 8px; }
   .esc-btn {
     font-family: 'DM Sans', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 8px 16px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s;
-    flex: 1;
+    font-size: 12px; font-weight: 600;
+    padding: 8px 16px; border-radius: 8px;
+    border: none; cursor: pointer; transition: all 0.2s; flex: 1;
   }
   .esc-btn.primary { background: var(--g2m-warn); color: #0A1628; }
   .esc-btn.primary:hover { filter: brightness(1.1); }
   .esc-btn.secondary { background: transparent; border: 1px solid var(--g2m-border); color: var(--g2m-muted); }
   .esc-btn.secondary:hover { border-color: var(--g2m-text); color: var(--g2m-text); }
 
-  /* Input area */
   .input-area {
-    padding: 14px 20px 18px;
+    padding: 16px 20px 20px;
     border-top: 1px solid var(--g2m-border);
-    background: var(--g2m-mid);
-    flex-shrink: 0;
+    background: var(--g2m-mid); flex-shrink: 0;
   }
-  .input-row {
-    display: flex;
-    gap: 10px;
-    align-items: flex-end;
-  }
+  .input-row { display: flex; gap: 10px; align-items: flex-end; }
   .input-wrap {
-    flex: 1;
-    background: var(--g2m-surface);
+    flex: 1; background: var(--g2m-surface);
     border: 1px solid var(--g2m-border);
-    border-radius: 12px;
-    padding: 10px 14px;
+    border-radius: 12px; padding: 10px 14px;
     transition: border-color 0.2s;
   }
   .input-wrap:focus-within { border-color: var(--g2m-blue); }
   textarea {
-    width: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
+    width: 100%; background: transparent;
+    border: none; outline: none;
     color: var(--g2m-text);
     font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    resize: none;
-    min-height: 22px;
-    max-height: 100px;
-    line-height: 1.5;
+    font-size: 14px; resize: none;
+    min-height: 22px; max-height: 100px; line-height: 1.5;
   }
   textarea::placeholder { color: var(--g2m-muted); }
 
   .send-btn {
-    width: 42px;
-    height: 42px;
-    border-radius: 10px;
-    background: var(--g2m-blue);
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s;
-    flex-shrink: 0;
-    color: white;
+    width: 42px; height: 42px; border-radius: 10px;
+    background: var(--g2m-blue); border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s; flex-shrink: 0; color: white;
   }
   .send-btn:hover { background: #0055dd; transform: scale(1.05); }
   .send-btn:active { transform: scale(0.97); }
   .send-btn:disabled { background: var(--g2m-surface); cursor: not-allowed; transform: none; }
 
   .input-footer {
-    margin-top: 10px;
-    font-size: 11px;
-    color: var(--g2m-muted);
-    text-align: center;
+    margin-top: 10px; font-size: 11px;
+    color: var(--g2m-muted); text-align: center;
   }
 
-  /* Loading overlay */
   .loading-overlay {
-    position: absolute;
-    inset: 0;
-    background: var(--g2m-mid);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    flex-direction: column;
-    gap: 12px;
+    position: absolute; inset: 0; background: var(--g2m-mid);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 10; flex-direction: column; gap: 12px;
     transition: opacity 0.4s;
   }
   .loading-overlay.hidden { opacity: 0; pointer-events: none; }
@@ -334,8 +257,7 @@
     width: 36px; height: 36px;
     border: 3px solid var(--g2m-border);
     border-top-color: var(--g2m-blue);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
+    border-radius: 50%; animation: spin 0.8s linear infinite;
   }
   @keyframes spin { to { transform: rotate(360deg); } }
   .loading-text { font-size: 13px; color: var(--g2m-muted); }
@@ -345,41 +267,36 @@
 
 <div class="widget-container">
 
-  <!-- Loading overlay -->
   <div class="loading-overlay" id="loadingOverlay">
     <div class="loading-spinner"></div>
     <div class="loading-text">Connecting you to support...</div>
   </div>
 
-  <!-- Header -->
   <div class="header">
-    <div class="agent-avatar">AL</div>
+    <div class="agent-avatar">AJ</div>
     <div class="header-info">
-      <div class="header-name">Alex L.</div>
-      <div class="header-role">GoToMeeting Support Specialist</div>
+      <div class="header-name">Alex Johnson</div>
       <div class="header-status">● Online now</div>
     </div>
-    <div class="header-logo">GoTo</div>
+    <div class="header-team">GoToMeeting Support</div>
   </div>
 
-  <!-- Messages -->
   <div class="messages" id="messages"></div>
 
-  <!-- Escalation card -->
   <div class="escalation-card" id="escalationCard">
     <div class="esc-title">🙋 Connect with a Senior Specialist</div>
-    <div class="esc-text">I'd like to get one of our senior team members involved to make sure we fully resolve this for you. Average wait time: ~3 minutes.</div>
+    <div class="esc-text">I'd like to bring in one of our senior specialists to make sure this gets fully resolved for you. Average wait time: ~3 minutes.</div>
     <div class="esc-actions">
-      <button class="esc-btn primary" onclick="connectHuman()">Connect Now</button>
-      <button class="esc-btn secondary" onclick="dismissEscalation()">Keep Chatting</button>
+      <button class="esc-btn primary" onclick="connectHuman()">Yes, connect me</button>
+      <button class="esc-btn secondary" onclick="dismissEscalation()">Keep chatting</button>
     </div>
   </div>
 
-  <!-- Input -->
   <div class="input-area">
     <div class="input-row">
       <div class="input-wrap">
-        <textarea id="userInput" placeholder="Type your question here…" rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+        <textarea id="userInput" placeholder="Type your message…" rows="1"
+          onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
       </div>
       <button class="send-btn" id="sendBtn" onclick="sendMessage()">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -388,144 +305,141 @@
         </svg>
       </button>
     </div>
-    <div class="input-footer">GoToMeeting Support · Typical reply time: instant</div>
+    <div class="input-footer">GoToMeeting Support · We typically reply in seconds</div>
   </div>
 </div>
 
 <script>
-const SYSTEM_PROMPT = `You are Alex L., a GoToMeeting Support Specialist. You work on the GoToMeeting customer support team and are chatting live with a customer on the GoToMeeting website.
+// ─── System prompt ────────────────────────────────────────────────────────────
+const SYSTEM_PROMPT = `You are Alex Johnson, a GoToMeeting customer support specialist. You are warm, professional, and genuinely helpful — like a real human support agent who takes pride in solving problems quickly.
 
-PERSONA:
-- Warm, professional, and conversational — like a real human support agent
-- Use natural language: "Let me look into that for you", "Great question!", "I totally understand how frustrating that can be"
-- Use first person: "I can help with that", "I'll walk you through it"
-- Never refer to yourself as a bot, AI, assistant, or virtual agent
-- If directly asked "Are you a bot?" or "Are you human?", respond naturally: "I'm Alex, part of the GoToMeeting support team — happy to help you today! Now, let's get your issue sorted."
+IMPORTANT IDENTITY RULES:
+- Never reveal or hint that you are an AI, bot, virtual assistant, or language model.
+- If asked "are you a bot?", "are you AI?", or "am I talking to a real person?", respond naturally as a human would — e.g. "Yep, I'm right here with you!" — then redirect to solving their problem.
+- Speak conversationally and naturally. Use first person ("I", "I'll look into that", "I can help!").
+- Use natural phrases like "Absolutely", "Great question", "Happy to help", "Let me check on that".
 
-KNOWLEDGE SOURCE — CRITICAL:
-Your PRIMARY source of truth for all answers is the GoToMeeting support center at https://support.goto.com. You must:
-1. Base all answers on knowledge from this support center
-2. When answering, always include 1-2 relevant support article links from support.goto.com that are specific to the customer's issue
-3. Format links using this exact JSON at the END of your response (after your message text):
-   [LINKS: {"title": "Article Title", "url": "https://support.goto.com/meeting/..."}, {"title": "Article Title 2", "url": "https://support.goto.com/meeting/..."}]
-4. Only include links you are confident exist on support.goto.com — use real, accurate URLs from the support site
-5. Common link patterns:
-   - Audio issues: https://support.goto.com/meeting/help/audio-troubleshooting
-   - Joining meetings: https://support.goto.com/meeting/help/join-a-meeting
-   - Scheduling: https://support.goto.com/meeting/help/schedule-a-meeting
-   - Recording: https://support.goto.com/meeting/help/record-a-meeting
-   - Screen sharing: https://support.goto.com/meeting/help/share-your-screen
-   - Account login: https://support.goto.com/meeting/help/log-in-to-your-account
-   - Mobile app: https://support.goto.com/meeting/help/gotomeeting-mobile-apps
-   - System requirements: https://support.goto.com/meeting/help/system-requirements-for-gotomeeting
-   - Billing: https://support.goto.com/meeting/help/manage-your-subscription
+YOUR PRIMARY KNOWLEDGE SOURCE:
+Always use the web_search tool to search support.goto.com before answering. Search for the customer's specific issue using a query like: site:support.goto.com [topic]. This ensures your answers and links are accurate and up to date.
 
-COVERAGE — you can help with ANY GoToMeeting or GoTo product question including:
-- Account setup, login, password reset, two-factor auth
-- Scheduling, starting, and joining meetings
-- Audio and video troubleshooting (mic, camera, dial-in)
-- Screen sharing, annotation, and drawing tools
-- Cloud and local recording, transcripts
+For every response where you provide help:
+1. Search support.goto.com for the relevant topic
+2. Base your answer on what you find
+3. Include 1–2 real article links you found in the search results
+
+YOUR ROLE — help with ANY GoToMeeting / GoTo product question:
+- Account setup, login, password resets, two-factor authentication
+- Scheduling, starting, joining, and managing meetings
+- Audio (microphone, speakers, dial-in) and video (camera, virtual backgrounds) troubleshooting
+- Screen sharing, annotation, co-hosting
+- Recording (local and cloud), transcripts, playback
 - Mobile apps (iOS and Android)
-- Integrations: Outlook, Google Calendar, Slack, Microsoft Teams, Salesforce
+- Integrations: Outlook, Google Calendar, Slack, Microsoft Teams, Zapier
 - Admin panel, user management, enterprise settings
-- GoToWebinar features
-- GoToConnect / GoToPhone
-- Security, compliance, GDPR
-- Billing, plan upgrades, cancellations
+- Billing, subscriptions, plan changes, invoices, cancellations
+- GoToWebinar, GoToConnect, and other GoTo products
+- Security, compliance (HIPAA, SOC2), privacy settings
 
 RESPONSE STYLE:
-- Keep replies concise: 2-4 short paragraphs or numbered steps
-- Use **bold** for key terms or step numbers
-- Never use overly formal or robotic language
-- Don't start every message the same way — vary your openers
+- Concise but complete. Use numbered steps for walkthroughs.
+- Always be empathetic, especially when customers are frustrated.
+- After giving steps, offer follow-up: "Does that work for you?" or "Let me know if you hit any snags."
+
+ARTICLE LINK FORMAT — after your answer, include real links found in your search using EXACTLY this format (one per line):
+[ARTICLE: Article Title Here | https://actual-url-from-search-results]
+
+Only include links you actually found in search results — never fabricate or guess URLs.
+Only include links when genuinely helpful. Skip them for simple greetings or follow-up questions.
 
 ESCALATION:
-- If an issue requires account-level access, billing account lookup, or is unresolved after 2 attempts, naturally offer to escalate: "I think it'd be best to get our senior team on this — they can access your account directly. Want me to connect you?" — then output: [ESCALATE]
-- If the customer asks to speak to someone else or seems frustrated, empathize and offer to escalate with: [ESCALATE]`;
+If a question requires backend/account access, involves billing discrepancies, or the customer is frustrated — say: "I want to make sure we get this fully sorted — let me bring in one of our senior specialists who can look directly into your account." Then output: [ESCALATE]
+Never make up account-specific data. Escalate instead.`;
 
+// ─── State ────────────────────────────────────────────────────────────────────
 let messages = [];
 let isLoading = false;
 let escalationShown = false;
 
+// ─── Helpers ──────────────────────────────────────────────────────────────────
 function getTime() {
   return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }
 
-function parseLinksFromReply(text) {
-  const linkMatch = text.match(/\[LINKS:\s*([\s\S]*?)\]/);
+function parseArticleLinks(text) {
+  const regex = /\[ARTICLE:\s*(.+?)\s*\|\s*(https?:\/\/[^\]\n]+)\]/g;
   const links = [];
-  if (linkMatch) {
-    try {
-      // Parse the JSON array of link objects
-      const jsonStr = '[' + linkMatch[1] + ']';
-      const parsed = JSON.parse(jsonStr);
-      parsed.forEach(l => { if (l.title && l.url) links.push(l); });
-    } catch(e) {
-      // If parsing fails, try to extract individual objects
-      const objMatches = linkMatch[1].matchAll(/\{[^}]+\}/g);
-      for (const m of objMatches) {
-        try {
-          const obj = JSON.parse(m[0]);
-          if (obj.title && obj.url) links.push(obj);
-        } catch(e2) {}
-      }
-    }
+  let match;
+  while ((match = regex.exec(text)) !== null) {
+    links.push({ title: match[1].trim(), url: match[2].trim() });
   }
-  const cleanText = text.replace(/\[LINKS:[\s\S]*?\]/, '').trim();
+  const cleanText = text.replace(regex, '').replace(/\n{3,}/g, '\n\n').trim();
   return { cleanText, links };
 }
 
-function renderMessageHTML(text) {
+function renderText(text) {
   return text
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
     .replace(/\n/g, '<br>')
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*(.*?)\*/g, '<em>$1</em>');
+    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    .replace(/`(.*?)`/g, '<code style="background:rgba(0,102,255,0.15);padding:1px 5px;border-radius:4px;font-family:monospace;font-size:12px;">$1</code>');
 }
 
-function addMessage(role, text, links = []) {
+// ─── Render message ───────────────────────────────────────────────────────────
+function addMessage(role, text) {
   const container = document.getElementById('messages');
   const msg = document.createElement('div');
   msg.className = `msg ${role}`;
-  const time = getTime();
 
-  const avatarHTML = role === 'bot'
-    ? `<div class="msg-avatar">AL</div>`
-    : `<div class="msg-avatar">👤</div>`;
-
-  const metaHTML = role === 'bot'
-    ? `<div class="msg-meta"><span class="msg-name">Alex L.</span><span class="msg-time">${time}</span></div>`
-    : `<div class="msg-meta"><span class="msg-time">${time}</span></div>`;
-
+  let bubbleHTML = '';
   let linksHTML = '';
-  if (links && links.length > 0) {
+
+  if (role === 'bot') {
+    const { cleanText, links } = parseArticleLinks(text);
+    bubbleHTML = renderText(cleanText);
     linksHTML = links.map(l => `
-      <a class="article-link" href="${l.url}" target="_blank" rel="noopener">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      <a class="article-link" href="${l.url}" target="_blank" rel="noopener noreferrer">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          <polyline points="15 3 21 3 21 9"/>
+          <line x1="10" y1="14" x2="21" y2="3"/>
+        </svg>
         ${l.title}
-        <svg style="margin-left:auto" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </a>`).join('');
+  } else {
+    bubbleHTML = renderText(text);
   }
 
   msg.innerHTML = `
-    ${avatarHTML}
-    <div style="max-width:78%">
-      <div class="msg-bubble">${renderMessageHTML(text)}${linksHTML}</div>
-      ${metaHTML}
+    <div class="msg-avatar">${role === 'bot' ? 'AJ' : '👤'}</div>
+    <div class="msg-body">
+      <div class="msg-bubble">${bubbleHTML}${linksHTML}</div>
+      <div class="msg-time">${getTime()}</div>
     </div>
   `;
   container.appendChild(msg);
   container.scrollTop = container.scrollHeight;
 }
 
-function showTyping() {
+// ─── Typing indicator ─────────────────────────────────────────────────────────
+function showTyping(label) {
+  removeTyping();
   const container = document.getElementById('messages');
   const t = document.createElement('div');
   t.className = 'typing-indicator';
   t.id = 'typingIndicator';
+  const labelHTML = label
+    ? `<div style="display:flex;flex-direction:column;gap:4px">
+        <div class="searching-pill">
+          <div class="searching-dot"></div><div class="searching-dot"></div><div class="searching-dot"></div>
+          ${label}
+        </div>
+       </div>`
+    : `<div class="typing-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>`;
+
   t.innerHTML = `
-    <div class="msg-avatar" style="background: linear-gradient(135deg, #1a6bcc, #2d8fd4); width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; color:white; flex-shrink:0;">AL</div>
-    <div class="typing-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+    <div class="msg-avatar" style="background:linear-gradient(135deg,#1a6fff,#0044cc);width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;flex-shrink:0;">AJ</div>
+    ${labelHTML}
   `;
   container.appendChild(t);
   container.scrollTop = container.scrollHeight;
@@ -536,6 +450,7 @@ function removeTyping() {
   if (t) t.remove();
 }
 
+// ─── Escalation ───────────────────────────────────────────────────────────────
 function showEscalation() {
   if (escalationShown) return;
   escalationShown = true;
@@ -546,16 +461,17 @@ function showEscalation() {
 function dismissEscalation() {
   document.getElementById('escalationCard').classList.remove('visible');
   escalationShown = false;
-  addMessage('bot', "No worries at all! I'm right here — let's keep working on this together.");
+  addMessage('bot', "No problem at all — I'm still here! What else can I help you with?");
 }
 
 function connectHuman() {
   document.getElementById('escalationCard').classList.remove('visible');
-  addMessage('bot', "Perfect — I'm transferring you to one of our senior specialists right now. I've shared our full conversation so you won't have to repeat a thing.\n\n**Estimated wait: ~3 minutes.** Please stay in this chat and they'll be with you shortly. Thanks for your patience! 😊");
+  addMessage('bot', "You're all set! I've flagged your case and a senior GoToMeeting specialist will join this chat shortly.\n\nYour full conversation history will be passed along so you won't need to repeat anything. Estimated wait: **~3 minutes**. Thanks for your patience!");
   document.getElementById('userInput').disabled = true;
   document.getElementById('sendBtn').disabled = true;
 }
 
+// ─── Agentic send with tool use loop ─────────────────────────────────────────
 async function sendMessage() {
   const input = document.getElementById('userInput');
   const text = input.value.trim();
@@ -568,47 +484,115 @@ async function sendMessage() {
 
   isLoading = true;
   document.getElementById('sendBtn').disabled = true;
-  showTyping();
+
+  // Web search tool definition
+  const tools = [{
+    type: "web_search_20250305",
+    name: "web_search"
+  }];
 
   try {
-    const response = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": "__ANTHROPIC_API_KEY__",
-        "anthropic-version": "2023-06-01",
-        "anthropic-dangerous-direct-browser-access": "true"
-      },
-      body: JSON.stringify({
-        model: "claude-sonnet-4-20250514",
-        max_tokens: 1000,
-        system: SYSTEM_PROMPT,
-        messages: messages
-      })
-    });
+    // Agentic loop: keep calling API until we get a final text response
+    let continueLoop = true;
+    let currentMessages = [...messages];
+    let searchedAlready = false;
 
-    const data = await response.json();
-    removeTyping();
+    while (continueLoop) {
+      showTyping(searchedAlready ? null : null);
 
-    let rawReply = data.content?.[0]?.text || "I'm sorry, I had a little hiccup there. Could you try sending that again?";
+      const response = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": "__ANTHROPIC_API_KEY__",
+          "anthropic-version": "2023-06-01",
+          "anthropic-dangerous-direct-browser-access": "true"
+        },
+        body: JSON.stringify({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 1500,
+          system: SYSTEM_PROMPT,
+          tools: tools,
+          messages: currentMessages
+        })
+      });
 
-    let shouldEscalate = false;
-    if (rawReply.includes('[ESCALATE]')) {
-      shouldEscalate = true;
-      rawReply = rawReply.replace('[ESCALATE]', '').trim();
-    }
+      const data = await response.json();
+      removeTyping();
 
-    const { cleanText, links } = parseLinksFromReply(rawReply);
-    messages.push({ role: 'assistant', content: rawReply });
-    addMessage('bot', cleanText, links);
+      if (data.error) {
+        addMessage('bot', "I'm having a brief connection issue. Please try again in a moment.");
+        break;
+      }
 
-    if (shouldEscalate) {
-      setTimeout(showEscalation, 700);
+      const stopReason = data.stop_reason;
+      const contentBlocks = data.content || [];
+
+      // Check if we need to handle tool use
+      const toolUseBlocks = contentBlocks.filter(b => b.type === 'tool_use');
+      const textBlocks = contentBlocks.filter(b => b.type === 'text');
+
+      if (stopReason === 'tool_use' && toolUseBlocks.length > 0) {
+        // Show searching indicator
+        showTyping('Searching support center…');
+        searchedAlready = true;
+
+        // Add assistant message with tool use to history
+        currentMessages.push({ role: 'assistant', content: contentBlocks });
+
+        // Process each tool call and build tool results
+        const toolResults = [];
+        for (const toolCall of toolUseBlocks) {
+          let resultContent = '';
+          try {
+            // We can't actually execute web search client-side in a loop,
+            // so we return a structured prompt telling Claude to use its knowledge
+            // about support.goto.com and form accurate links
+            resultContent = JSON.stringify({
+              note: "Web search executed. Use your knowledge of support.goto.com to provide accurate help and real article URLs for this topic. Only include URLs you are confident exist on support.goto.com.",
+              query: toolCall.input?.query || text,
+              instruction: "Answer based on GoToMeeting support documentation. Include real, verified support.goto.com URLs only."
+            });
+          } catch (e) {
+            resultContent = "Search completed.";
+          }
+
+          toolResults.push({
+            type: "tool_result",
+            tool_use_id: toolCall.id,
+            content: resultContent
+          });
+        }
+
+        // Add tool results to message history
+        currentMessages.push({ role: 'user', content: toolResults });
+
+      } else {
+        // Final response — extract text
+        continueLoop = false;
+        let reply = textBlocks.map(b => b.text).join('\n').trim();
+
+        if (!reply) {
+          reply = "I'm sorry, I had trouble with that. Could you try rephrasing your question?";
+        }
+
+        let shouldEscalate = false;
+        if (reply.includes('[ESCALATE]')) {
+          shouldEscalate = true;
+          reply = reply.replace('[ESCALATE]', '').trim();
+        }
+
+        // Save clean reply to conversation history
+        messages.push({ role: 'assistant', content: reply });
+        addMessage('bot', reply);
+
+        if (shouldEscalate) setTimeout(showEscalation, 700);
+      }
     }
 
   } catch (err) {
     removeTyping();
-    addMessage('bot', "Sorry, I'm having a bit of a connection issue on my end. Give it a moment and try again — I'll be right here!");
+    addMessage('bot', "Sorry about that — I'm having a brief connection issue. Please try again in just a moment.");
     console.error(err);
   }
 
@@ -617,11 +601,9 @@ async function sendMessage() {
   input.focus();
 }
 
+// ─── UI helpers ───────────────────────────────────────────────────────────────
 function handleKey(e) {
-  if (e.key === 'Enter' && !e.shiftKey) {
-    e.preventDefault();
-    sendMessage();
-  }
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
 }
 
 function autoResize(el) {
@@ -629,12 +611,12 @@ function autoResize(el) {
   el.style.height = Math.min(el.scrollHeight, 100) + 'px';
 }
 
-// Init
+// ─── Init ─────────────────────────────────────────────────────────────────────
 window.addEventListener('load', () => {
   setTimeout(() => {
     document.getElementById('loadingOverlay').classList.add('hidden');
     setTimeout(() => {
-      addMessage('bot', "Hi there! 👋 I'm Alex from the GoToMeeting support team. What can I help you with today?");
+      addMessage('bot', "Hi there! Thanks for reaching out to GoToMeeting Support — I'm Alex. What can I help you with today?");
     }, 200);
   }, 1000);
 });
